@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <!-- Bootstrap CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Custom Styles */
+    .navbar {
+      background-color: transparent !important;
+      z-index: 10;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav .nav-link {
+      color: grey;
+      position: relative;
+      padding: 10px 10px;
+      margin-left: 45px;
+
+    }
+
+    .btn-cv, .btn-hire-me {
+      padding: 10px 20px;
+      color: rgb(128, 128, 128);
+      /* border: 2px solid burlywood; */
+      border-radius: 5px;
+      background-color: rgba(150, 150, 150, 0.308);
+      transition: background-color 1s ease, color 1s ease;
+      font-weight: bold;
+      font-size: 0.7rem;
+      margin-left: auto;
+    }
+
+    .btn-cv:hover {
+      background-color: burlywood;
+      color: white;
+      border-color: burlywood;
+    }
+
+    .navbar-toggler {
+      border: none;
+    }
+
+    .navbar-brand {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: burlywood;
+      letter-spacing: 1px;
+      transition: transform 0.5s ease, color 1s ease;
+    }
+
+    .navbar-brand:hover {
+      color: burlywood;
+      transform: scale(1.1);
+    }
+
+    /* Hover underline effect */
+    .navbar-nav .nav-link::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: rgb(70, 207, 231);
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-nav .nav-link:hover::before {
+      visibility: visible;
+      width: 100%;
+    }
+
+    /* Sticky effect */
+    .sticky-top {
+      position: sticky;
+      top: 0;
+      background-color: rgba(51, 51, 51, 0.8);
+      backdrop-filter: blur(10px);
+    }
+
+    .header {
+      height: 96vh;
+      background: url('https://source.unsplash.com/1600x900/?nature,technology') center center/cover no-repeat;
+      color: grey;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .name-box {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #00674F;
+      color: white;
+      font-size: 0.7rem;
+      font-weight: bold;
+      border-radius: 8px;
+      margin-top: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header h1 {
+      font-size: 4rem;
+      margin-bottom: 20px;
+    }
+
+    .animated-text {
+      overflow: hidden;
+      white-space: nowrap;
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: rgb(91, 91, 91);
+    }
+
+    #changing-text {
+      border-right: 2px solid black;
+      display: inline-block;
+      padding: 5px;
+      padding-top: 15px;
+      animation: blink-caret 0.75s step-end infinite;
+      color: burlywood;
+    }
+
+    @keyframes blink-caret {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+
+
+    .btn-hire-me {
+      background-color: rgba(70, 207, 231, 0.648); 
+      border: 2px solid rgba(0, 0, 128, 0); 
+      color: white;
+    }
+
+    .btn-hire-me:hover {
+      background-color: rgb(70, 207, 231); 
+      color: white; 
+    }
+
+    .btn-hire-me img  {
+      padding-bottom: 6px;
+    }
+
+    .btn-cv img {
+      padding-bottom: 6px;
+      transition: filter 1s ease, color 1s ease;
+    }
+
+
+    .btn-cv:hover img {
+      filter: brightness(0) invert(1); 
+    }
+
+    .social-media-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px; 
+    }
+
+    .social-media-button {
+      display: inline-block;
+      width: 40px; 
+      height: 40px; 
+      border-radius: 50%; 
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.237);
+      background-color: transparent; 
+      color: black; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 5px; 
+      transition: color 0.5s ease, 0.5s ease; 
+      text-decoration: none;
+    }
+
+    .social-media-button:hover {
+      color: rgb(70, 207, 231);
+    }
+
+    /* Icon size */
+    .social-media-button i {
+      font-size: 20px; 
+    }
+
+    .scroll-down {
+      margin-top: 20px; /* Space above the scroll down button */
+    }
+
+    .scroll-button {
+      display: inline-block;
+      background-color: transparent; 
+      border-radius: 30px;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, 0.237); 
+      cursor: pointer; 
+      transition: transform 0.3s ease, 0.3s ease;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 15px;
+      color: #808080;
+    }
+
+    .scroll-button:hover {
+      transform: translateY(2px);
+      color: #808080;
+    }
+
+    
+    .scroll-button img {
+      width: 20px; 
+      height: 20px;
+      padding-bottom: 3px; 
+      color: gray;
+    }
+
+    .about, .projects, .contact {
+      padding: 60px 0;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+    .fade-in {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1; 
+    }
+
+    @media (max-width: 1000px) {
+      .header h1 {
+        font-size: 2.5rem;
+      }
+
+      .about img {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .navbar-nav {
+        text-align: center;
+      }
+
+      .btn-cv {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a class="navbar-brand" href="#">Revaldo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+    <a href="assets/CV - Revaldo Apriyan Mahulae.pdf" class="btn btn-cv" download>Download CV</a>
+  </div>
+</nav>
+
+<!-- Header Section -->
+<header class="header">
+  <div class="container">
+    <div class="name-box">
+      <p style="margin: 0;">Revaldo Apriyan Mahulae</p>
+    </div>
+    <h1 class="animated-text">
+      <span>I'm a </span><span id="changing-text"></span>
+    </h1>
+    <p>Driven by a deep passion for technology, <br>I am a dedicated Computer Science student eager to innovate and create user-friendly websites.</p>
+    <div class="button-container">
+      <a href="#contact" class="btn btn-hire-me">
+        <img src="https://img.icons8.com/ios-filled/20/ffffff/hire-me.png" alt="Hire Me Icon" style="margin-right: 5px;"> Hire Me
+      </a>
+      <a href="assets/CV - Revaldo Apriyan Mahulae.pdf" class="btn btn-cv" download>
+        <img src="https://img.icons8.com/ios-filled/20/000000/download.png" alt="CV Icon" style="margin-right: 5px;"> Download CV
+      </a>
+    </div>
+
+    <!-- Socials -->
+    <div class="social-media-container">
+      <a href="https://www.instagram.com/revaldo_04/" target="_blank" class="social-media-button">
+        <i class="fa-brands fa-instagram"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/revaldomahulae04/" target="_blank" class="social-media-button">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/RevaldoAm" target="_blank" class="social-media-button">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <p style="padding-top: 30px; font-weight: bold; color: burlywood;">Explore My Projects and Skills</p>
+
+    <div class="scroll-down">
+      <a href="#about" class="scroll-button">
+          <img src="https://img.icons8.com/ios-filled/24/808080/mouse.png" alt="Scroll Down Icon"> Scroll Down
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 col-md-12 text-center">
+        <img src="https://source.unsplash.com/400x400/?portrait" alt="Profile Picture">
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <h2>About Me</h2>
+        <p>Hello! I am [Your Name], a passionate developer with expertise in web development and design. I love creating stunning and user-friendly websites.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects bg-light">
+  <div class="container">
+    <h2 class="text-center">My Projects</h2>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card project-card">
+          <img src="https://source.unsplash.com/400x300/?website" alt="Project 1">
+          <div class="card-body">
+            <h5 class="card-title">Project 1</h5>
+            <p class="card-text">Description of your project goes here.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card project-card">
+          <img src="https://source.unsplash.com/400x300/?app" alt="Project 2">
+          <div class="card-body">
+            <h5 class="card-title">Project 2</h5>
+            <p class="card-text">Description of your project goes here.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 mb-4">
+        <div class="card project-card">
+          <img src="https://source.unsplash.com/400x300/?development" alt="Project 3">
+          <div class="card-body">
+            <h5 class="card-title">Project 3</h5>
+            <p class="card-text">Description of your project goes here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2 class="text-center">Contact Me</h2>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <form action="" method="POST">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Your Email" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2023 Revaldo. All Rights Reserved.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="js/bootstrap.bundle.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const roles = ["Student", "Web Developer", "Software Engineer"];
+    let currentIndex = 0;
+    let currentText = "";
+    let isDeleting = false;
+    const speed = 200;
+    const typeDelay = 2000; // Pause after typing each word
+
+    function type() {
+        const role = roles[currentIndex];
+        if (isDeleting) {
+            currentText = role.substring(0, currentText.length - 1);
+        } else {
+            currentText = role.substring(0, currentText.length + 1);
+        }
+
+        document.getElementById("changing-text").textContent = currentText;
+
+        if (!isDeleting && currentText === role) {
+            setTimeout(() => {
+                isDeleting = true;
+                type();
+            }, typeDelay);
+        } else if (isDeleting && currentText === "") {
+            isDeleting = false;
+            currentIndex = (currentIndex + 1) % roles.length; 
+            type();
+        } else {
+            setTimeout(type, isDeleting ? speed / 2 : speed);
+        }
+    }
+
+    // Fade-in effect
+    const sections = document.querySelectorAll('.header, .about, .projects, .contact');
+    const options = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.8
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible'); // Add the visible class
+        } else {
+          entry.target.classList.remove('visible'); // Remove the visible class
+        }
+      });
+    }, options);
+
+    sections.forEach(section => {
+      section.classList.add('fade-in'); // Add fade-in class to all sections
+      observer.observe(section); // Observe each section
+    });
+
+    type(); 
+  });
+
+</script>
+</body>
+</html>
