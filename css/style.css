@@ -698,12 +698,48 @@ body {
     }
 }
 
-footer {
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
+.contact {
+  background: #f9f9f9;
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
 }
+
+.contact h2 {
+  color: #555;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.contact .form-control {
+  border-radius: 30px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact .form-control:focus {
+  border-color: #46cfe7;
+  outline: none;
+}
+
+.contact .btn-primary {
+  background: #46cfe7;
+  border: none;
+  transition: background 0.3s ease;
+}
+
+.contact .btn-primary:hover {
+  background: #46cfe794;
+}
+
+.contact #response-message {
+  font-weight: bold;
+  color: burlywood;
+}
+
+
 
 .fade-in {
   opacity: 0;
