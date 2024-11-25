@@ -209,3 +209,16 @@ form.addEventListener("submit", async (e) => {
       });
     }
   });
+
+  // Create the dot element
+  const cursorDot = document.createElement('div');
+  cursorDot.classList.add('cursor-dot');
+  document.body.appendChild(cursorDot);
+
+  // Update dot position on mouse move
+  document.addEventListener('mousemove', (event) => {
+    requestAnimationFrame(() => {
+      cursorDot.style.top = `${event.clientY}px`;
+      cursorDot.style.left = `${event.clientX}px`;
+    });
+  });
