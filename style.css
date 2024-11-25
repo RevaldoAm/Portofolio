@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 body {
@@ -766,5 +765,103 @@ body {
 
   .btn-cv {
     display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .header h1 {
+    font-size: 3rem;
+  }
+
+  .about img {
+    max-width: 60%;
+  }
+
+  .skills-section h3 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .btn-cv, .btn-hire-me {
+    font-size: 0.6rem;
+    padding: 8px 15px;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  .about-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .skills-list {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-media-container {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .carousel .list .item .content .title {
+    font-size: 2rem;
+  }
+
+  .contact {
+    padding: 30px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    height: auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .btn-cv, .btn-hire-me {
+    padding: 5px 10px;
+    font-size: 0.5rem;
+  }
+
+  .about img {
+    width: 100%;
+  }
+
+  .social-media-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+
+  .contact h2 {
+    font-size: 1.5rem;
+  }
+
+  .carousel .list .item .content {
+    width: 90%;
+  }
+
+  .carousel .list .item .topic {
+    font-size: 1.5rem;
   }
 }
