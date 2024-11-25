@@ -42,18 +42,32 @@ body {
   border: none;
 }
 
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+
 .navbar-brand {
-  font-size: 1.3rem;
-  font-weight: bold;
   color: burlywood;
-  letter-spacing: 1px;
   transition: transform 0.5s ease, color 1s ease;
+  display: flex; /* Ensure the logo aligns well */
+  align-items: center;
+}
+
+.navbar-brand img {
+  height: 100px; 
+  max-height: 100px; 
+  object-fit: contain;
+  display: block;
+  margin-bottom: -60px;
+  margin-top: -60px;
 }
 
 .navbar-brand:hover {
   color: burlywood;
   transform: scale(1.1);
 }
+
+
 
 /* Hover underline effect */
 .navbar-nav .nav-link::before {
@@ -735,7 +749,7 @@ body {
 
 .contact #response-message {
   font-weight: bold;
-  color: burlywood;
+  color: #deb887;
 }
 
 

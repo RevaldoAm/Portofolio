@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.5
+      threshold: 0.4
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -178,4 +178,34 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
+ // Close menu when clicking a nav link
+ document.querySelectorAll('.nav-link').forEach(item => {
+    item.addEventListener('click', () => {
+      const navbarCollapse = document.querySelector('.navbar-collapse');
+      if (navbarCollapse.classList.contains('show')) {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+          toggle: true
+        });
+      }
+    });
+  });
 
+  // Toggle menu on hamburger click
+  document.querySelector('.navbar-toggler').addEventListener('click', () => {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse.classList.contains('show')) {
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+        toggle: true
+      });
+    }
+  });
+
+  // Close menu when scrolling
+  window.addEventListener('scroll', () => {
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    if (navbarCollapse.classList.contains('show')) {
+      const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+        toggle: true
+      });
+    }
+  });
