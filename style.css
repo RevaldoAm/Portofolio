@@ -482,37 +482,37 @@ body {
 .project-card--qas::before {
     background-image:
             linear-gradient(90deg, #46cfe7b1 0%, #46cfe7e9 100%),
-            url('../assets/qas.png');
+            url('assets/qas.png');
 }
 .project-card--qita::before {
     background-image:
             linear-gradient(90deg, #46cfe7b1 0%, #46cfe7e9 100%),
-            url('../assets/qita.png');
+            url('assets/qita.png');
 }
 .project-card--weathrly::before {
     background-image:
             linear-gradient(90deg, #46cfe7b1 0%, #46cfe7e9 100%),
-            url('../assets/weathrly.png');
+            url('assets/weathrly.png');
 }
 .project-card--medicare::before {
     background-image:
             linear-gradient(90deg, #46cfe7b1 0%, #46cfe7e9 100%),
-            url('../assets/medicare.png');
+            url('assets/medicare.png');
 }
 .project-card--taskease::before {
     background-image:
             linear-gradient(90deg, #46cfe7b1 0%, #46cfe7e9 100%),
-            url('../assets/taskease.png');
+            url('assets/taskease.png');
 }
 .project-card--vhotel::before {
     background-image:
             linear-gradient(90deg, #46cfe7b1 0%, #46cfe7e9 100%),
-            url('../assets/VHotel.png');
+            url('assets/VHotel.png');
 }
 .project-card--calm::before {
     background-image:
             linear-gradient(90deg, #46cfe7b1 0%, #46cfe7e9 100%),
-            url('../assets/CALM.png');
+            url('assets/CALM.png');
 }
 
 .project-card:hover {
