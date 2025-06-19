@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const roles = ["Student", "Web Developer", "Software Engineer"];
+    const roles = ["Student", "Web Developer", "Software Engineer", "Backend Developer"];
     let currentIndex = 0;
     let currentText = "";
     let isDeleting = false;
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const options = {
       root: null,
       rootMargin: '0px',
-      threshold: 0.4
+      threshold: 0.1
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -76,22 +76,18 @@ document.addEventListener("DOMContentLoaded", function () {
   document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
 }
 
-// Initial load
 document.addEventListener("DOMContentLoaded", () => showTab('about'));
 
 function toggleDropdown(sectionId) {
   const section = document.getElementById(sectionId);
   const isCollapsed = section.style.display === "none";
 
-  // Toggle display of the content
   section.style.display = isCollapsed ? "block" : "none";
   
-  // Animate arrow rotation
   const arrowIcon = section.previousElementSibling.querySelector('.arrow-icon');
   arrowIcon.style.transform = isCollapsed ? "rotate(90deg)" : "rotate(0deg)";
 }
 
-//step 1: get DOM
 let nextDom = document.getElementById('next');
 let prevDom = document.getElementById('prev');
 
