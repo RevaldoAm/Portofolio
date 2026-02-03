@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentText = "";
     let isDeleting = false;
     const speed = 200;
-    const typeDelay = 2000; // Pause after typing each word
+    const typeDelay = 2000;
 
     function type() {
         const role = roles[currentIndex];
@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Fade-in effect
     const sections = document.querySelectorAll('.header, .about, .projects, .contact');
     const options = {
       root: null,
@@ -61,7 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const tabButtons = document.querySelectorAll('.tab-button');
 
   tabContents.forEach(content => {
-    // Hide content with transition delay for smooth fading
     if (content.id === tabName + '-content') {
       content.style.display = 'block';
       setTimeout(() => content.classList.add('active')); 
@@ -71,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Activate the selected button
   tabButtons.forEach(button => button.classList.remove('active'));
   document.querySelector(`[onclick="showTab('${tabName}')"]`).classList.add('active');
 }
@@ -143,13 +140,12 @@ function showSlider(type){
 const form = document.getElementById("contact-form");
 const responseMessage = document.getElementById("response-message");
 
-// Replace with your Web App URL
 const scriptURL = "https://script.google.com/macros/s/AKfycbyG3d4gImGOMeIxyBdLljDGCDnPL1YcHomBLneKEhJF_m2iCIEDS1e-2koOO5yhDk8/exec";
 
 form.addEventListener("submit", async (e) => {
-  e.preventDefault(); // Prevent the form from refreshing the page
+  e.preventDefault();
 
-  const formData = new FormData(form); // Create a FormData object
+  const formData = new FormData(form);
 
   try {
     const response = await fetch(scriptURL, {
@@ -162,7 +158,7 @@ form.addEventListener("submit", async (e) => {
     if (result.result === "success") {
       responseMessage.textContent = "Message sent successfully!";
       responseMessage.style.color = "green";
-      form.reset(); // Clear the form
+      form.reset();
     } else {
       throw new Error(result.error || "Something went wrong");
     }
@@ -174,7 +170,6 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
- // Close menu when clicking a nav link
  document.querySelectorAll('.nav-link').forEach(item => {
     item.addEventListener('click', () => {
       const navbarCollapse = document.querySelector('.navbar-collapse');
@@ -186,7 +181,6 @@ form.addEventListener("submit", async (e) => {
     });
   });
 
-  // Toggle menu on hamburger click
   document.querySelector('.navbar-toggler').addEventListener('click', () => {
     const navbarCollapse = document.querySelector('.navbar-collapse');
     if (navbarCollapse.classList.contains('show')) {
@@ -196,7 +190,6 @@ form.addEventListener("submit", async (e) => {
     }
   });
 
-  // Close menu when scrolling
   window.addEventListener('scroll', () => {
     const navbarCollapse = document.querySelector('.navbar-collapse');
     if (navbarCollapse.classList.contains('show')) {
@@ -206,12 +199,9 @@ form.addEventListener("submit", async (e) => {
     }
   });
 
-  // Create the dot element
   const cursorDot = document.createElement('div');
   cursorDot.classList.add('cursor-dot');
   document.body.appendChild(cursorDot);
-
-  // Update dot position on mouse move
   document.addEventListener('mousemove', (event) => {
     requestAnimationFrame(() => {
       cursorDot.style.top = `${event.clientY}px`;
